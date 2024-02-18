@@ -12,20 +12,6 @@ const app = express();
 
 const {PORT, MONGO_URL } = process.env;
 
-mongoose
-.connect(MONGO_URL)
-.then(()=>{
-  console.log("App connected to database");
-    app.listen(PORT, '0.0.0.0', ()=>{
-        console.log(`Listening to PORT:${PORT}`);
-        
-    })
-    
-})
-.catch((error)=>{
-    console.log("error connecting to database: "+error);
-})
-
 
 
 app.use(
@@ -45,3 +31,17 @@ app.use('/',Route);
 /*app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });*/
+
+mongoose
+.connect(MONGO_URL)
+.then(()=>{
+  console.log("App connected to database");
+    app.listen(PORT, '0.0.0.0', ()=>{
+        console.log(`Listening to PORT:${PORT}`);
+        
+    })
+    
+})
+.catch((error)=>{
+    console.log("error connecting to database: "+error);
+})
