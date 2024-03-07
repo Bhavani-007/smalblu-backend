@@ -78,3 +78,23 @@ export const Login = async (req, res, next) => {
     console.error(error);
   }
 }
+
+export const GetUserNotificationsCount = async(req, res, next) => {
+  try {
+    const {email} = req.params;
+    console.log(email);
+    if (!email)
+      return res.json({message: 'user email not received.'})
+
+    const user = await User.findOne({ email });
+    if(!user){
+        return res.json({message:'Incorrect email' }) 
+    }
+
+    res.status(201).json({success:true, count:user.notification_count})
+    next()
+
+  } catch (error) {
+    res.json({success: false})
+  }
+}

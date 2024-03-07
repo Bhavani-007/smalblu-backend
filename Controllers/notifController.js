@@ -31,9 +31,10 @@ export const SendNotifications = async (req, res, next) => {
   export const getNotifications = async (req, res, next) => {
     try {
       const notifications = await Notification.find({ });
+      const notifications_count = await Notification.countDocuments({});
       res
         .status(201)
-        .json({ message: "Got all the notifcations from server", success: true, notifications });
+        .json({ message: "Got all the notifcations from server", success: true, count:notifications_count, notifications });
       next();
       
     } catch (error) {

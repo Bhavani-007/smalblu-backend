@@ -1,4 +1,4 @@
-import { Signup, Login, GetAllUsers } from "../Controllers/AuthController.js";
+import { Signup, Login, GetAllUsers, GetUserNotificationsCount } from "../Controllers/AuthController.js";
 import express from 'express';
 import { userVerification } from "../Middlewares/AuthMiddleware.js";
 import { SendNotifications, getNotifications, getNotificationsCount } from "../Controllers/notifController.js";
@@ -11,6 +11,8 @@ router.post('/signup',Signup);
 router.post('/login', Login);
 
 router.post('/',userVerification);
+
+router.get('/user-notifications-count/:email',GetUserNotificationsCount)
 
 router.get('/allusers',GetAllUsers);
 

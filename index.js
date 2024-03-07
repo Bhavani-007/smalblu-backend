@@ -1,4 +1,4 @@
-import express from 'express';
+/*import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -17,7 +17,7 @@ const { PORT, MONGO_URL } = process.env;
 
 app.use(
     cors({
-      origin: ['https://smalblu-frontend.onrender.com', 'http://smalblu-frontend.onrender.com'],
+      origin: ['http://localhost:3000','https://smalblu-frontend.onrender.com', 'http://smalblu-frontend.onrender.com'],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })
@@ -33,7 +33,7 @@ mongoose
   .connect(MONGO_URL)
   .then(() => {
     console.log("App connected to database");
-    server.listen(PORT, '0.0.0.0', () => { // Start HTTP server
+    server.listen(PORT, '127.0.0.1', () => { // Start HTTP server
       console.log(`Listening to PORT:${PORT}`);
     });
 
@@ -54,10 +54,10 @@ mongoose
   })
   .catch((error) => {
     console.log("Error connecting to database: " + error);
-  });
+  });*/
 
 
-/*import express from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -75,7 +75,7 @@ const {PORT, MONGO_URL } = process.env;
 
 app.use(
     cors({
-      origin: ['https://smalblu-frontend.onrender.com', 'http://smalblu-frontend.onrender.com'],
+      origin: ['http://localhost:3000','https://smalblu-frontend.onrender.com', 'http://smalblu-frontend.onrender.com'],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })
@@ -93,7 +93,7 @@ mongoose
 .connect(MONGO_URL)
 .then(()=>{
   console.log("App connected to database");
-    app.listen(PORT, '0.0.0.0', ()=>{
+    app.listen(PORT, '127.0.0.1', ()=>{
         console.log(`Listening to PORT:${PORT}`);
         
     })
@@ -101,4 +101,4 @@ mongoose
 })
 .catch((error)=>{
     console.log("error connecting to database: "+error);
-})*/
+})
